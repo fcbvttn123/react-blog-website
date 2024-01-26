@@ -1,0 +1,48 @@
++ Home Page 
+
+    + Nav Bar
+    
+        + Login link
+        
+        + Home link
+
+    + Blog Card
+
+        + Heading
+
+        + Blog 
+
+        + Writer
+
++ Sign in Event 
+
+    + Nav Bar 
+
+        + Home link
+
+        + Create Post button
+
+        + Log out button
+
+    + Blog card 
+
+        + The user can delete their own blog
+
++ Create Post event --> show Create Post Form
+
+    + Title Input
+
+    + Post Input 
+
+    + Submit
+
++ Submit Post Event
+
+    + Come back to home page 
+
+    + Update new post
+
+
+
+
++ Blog Card size is dynamic for long or short blog
