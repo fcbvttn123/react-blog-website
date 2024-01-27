@@ -1,0 +1,28 @@
++ Components
+
+    + BlogCardContainer 
+
+        --> BlogCard 
+
+    + NavBar
+
+        + Home Button 
+
+        + SignIn Button
+
+        + SignOut Button
+
+        + Create-Post Button
+
+    + Post Form
+
+
+
+
++ DB
+
+    {
+        title: string;
+        text: string;
+        writer: string;
+    }

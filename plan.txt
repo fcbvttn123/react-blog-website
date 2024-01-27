@@ -46,3 +46,30 @@
 
 
 + Blog Card size is dynamic for long or short blog
+
+
+
+
++ Login event 
+
+    + "Login button" gone
+
+    + Add "Create Post" and "Sign Out" buttons to navbar
+
++ Sign Out event
+
+    + "Login button" appears
+
+    + "Create Post" and "Sign Out" buttons gone
+
++ Create Post event
+
+    + Blog Card section gone
+
+    + Form appears
+
++ Blog Remove event
+
+    + Update db 
+
+    + Update "blog card section"
