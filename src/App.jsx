@@ -16,7 +16,7 @@ function App() {
     <AppContext.Provider value={{setIsSignedIn, isSignedIn, setCurrentMainSection}}>
       <NavBar />
       {
-        currentMainSection == BLOGS_CONTAINER ? 
+        currentMainSection == BLOGS_CONTAINER || !isSignedIn ? 
         <BlogsContainer /> :
         <PostForm /> 
       }
