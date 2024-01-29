@@ -1,5 +1,9 @@
+import { useContext } from "react"
+import { AppContext } from "../../App"
+
 export function CreatePostButton() {
+    const {setCurrentMainSection} = useContext(AppContext)
     return (
-        <button>Create Post</button>
+        <button onClick={() => setCurrentMainSection("postForm")}>Create Post</button>
     )
 }

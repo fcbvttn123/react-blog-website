@@ -1,14 +1,14 @@
 import { LoginButton } from "./LoginButton";
-import { AppContext } from "../../App";
+import { AppContext, BLOGS_CONTAINER } from "../../App";
 import { useContext } from "react";
 import {CreatePostButton} from "./CreatePostButton"
 import {SignOutButton} from "./SignOutButton"
 
 export function NavBar() {
-    let {isSignedIn} = useContext(AppContext)
+    let {isSignedIn, setCurrentMainSection} = useContext(AppContext)
     return (
         <div>
-            <button>Home</button>
+            <button onClick={() => setCurrentMainSection(BLOGS_CONTAINER)}>Home</button>
             {!isSignedIn && <LoginButton />}
             {isSignedIn && <CreatePostButton />}
             {isSignedIn && <SignOutButton />}
