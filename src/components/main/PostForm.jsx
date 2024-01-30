@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { doc, addDoc } from "firebase/firestore"
+import { addDoc } from "firebase/firestore"
 import { blogs } from "../../firebase"
 import { localStorageKey } from "../../App"
 
@@ -8,7 +8,7 @@ export function PostForm() {
         title: "", 
         post: ""
     })
-    let currentlyLoggedInEmail = JSON.parse(localStorage.getItem(localStorageKey)).email
+    let currentlyAccountDisplayName = JSON.parse(localStorage.getItem(localStorageKey)).username
     function formChangeEvent(e) {
         let {value, name} = e.target
         setFormData(prev => {
@@ -27,7 +27,7 @@ export function PostForm() {
         await addDoc(blogs, {
             title, 
             post,
-            writer: currentlyLoggedInEmail,
+            writer: currentlyAccountDisplayName,
             createdAt: Date.now()
         })
         setFormData({

@@ -25,3 +25,8 @@ function App() {
 }
 
 export default App
+
+
+
+
+// Remove space character for the value of post property
