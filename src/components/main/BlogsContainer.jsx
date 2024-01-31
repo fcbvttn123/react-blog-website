@@ -2,7 +2,6 @@ import { getDocs } from "firebase/firestore"
 import { blogs } from "../../firebase"
 import { useEffect, useState } from "react"
 import { BlogCard } from "./BlogCard"
-import { v4 } from "uuid"
 import { localStorageKey } from "../../App"
 
 export function BlogsContainer() {
@@ -10,7 +9,6 @@ export function BlogsContainer() {
 
     let loginInfo = localStorage.getItem(localStorageKey) ? JSON.parse(localStorage.getItem(localStorageKey)) : null
     retrievedBlogs.sort((a, b) => b.createdAt - a.createdAt);
-    let blogCards = retrievedBlogs.map(blog => <BlogCard key={v4()} blog={blog} currentlyLoggedInEmail={loginInfo ? loginInfo.email : null}/>)
 
     async function getBlogs() {
         const data = await getDocs(blogs)
@@ -21,6 +19,8 @@ export function BlogsContainer() {
             }
         }))
     }
+
+    let blogCards = retrievedBlogs.map(blog => <BlogCard key={blog.id} renderBlogContainer={getBlogs} blog={blog} currentlyLoggedInEmail={loginInfo ? loginInfo.email : null}/>)
 
     useEffect(() => {
         getBlogs()

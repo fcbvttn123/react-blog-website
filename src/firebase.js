@@ -45,5 +45,5 @@ export async function signInWithGoogle() {
 
 
 // Firestore setup 
-const db = getFirestore(app)
+export const db = getFirestore(app)
 export const blogs = collection(db, "blogs")
