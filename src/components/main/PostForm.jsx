@@ -2,6 +2,7 @@ import { useState } from "react"
 import { addDoc } from "firebase/firestore"
 import { blogs } from "../../firebase"
 import { localStorageKey } from "../../App"
+import { Button } from "../Button"
 
 export function PostForm() {
     const [formData, setFormData] = useState({
@@ -43,16 +44,21 @@ export function PostForm() {
         })
     }
     return (
-        <form action="#" onSubmit={formSubmission} className="bg-black">
-            <div>
-                <label className="text-white" htmlFor="title">Title:</label>
-                <input type="text" name="title" id="title" value={formData.title} onChange={formChangeEvent}/>
-            </div>
-            <div className="flex mt-5">
-                <label className="text-white" htmlFor="post">Post:</label>
-                <textarea name="post" id="post" cols="30" rows="10" value={formData.post} onChange={formChangeEvent}></textarea>
-            </div>
-            <button className="text-white">Submit</button>
-        </form>
+        <div>
+            <form action="#" onSubmit={formSubmission} className="bg-black mt-8 w-11/12 mx-auto max-w-2xl p-6 rounded-xl">
+                <h1 className="text-white font-extrabold text-3xl text-center mb-4">Create a Post</h1>
+                <div className="flex flex-col items-start">
+                    <label className="text-white" htmlFor="title">Title:</label>
+                    <input className="px-2 py-1 rounded-md w-full mt-2" placeholder="Enter your post title" type="text" name="title" id="title" value={formData.title} onChange={formChangeEvent}/>
+                </div>
+                <div className="flex my-5 flex-col items-start">
+                    <label className="text-white" htmlFor="post">Post:</label>
+                    <textarea className="rounded-md w-full mt-2 px-2 py-1" placeholder="Post..." name="post" id="post" cols="30" rows="10" value={formData.post} onChange={formChangeEvent}></textarea>
+                </div>
+                <Button>
+                    Add Post
+                </Button>
+            </form>
+        </div>
     )
 }
