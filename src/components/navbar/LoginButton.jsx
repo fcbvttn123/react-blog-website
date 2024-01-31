@@ -2,6 +2,7 @@ import {signInWithGoogle} from "../../firebase"
 import { useContext } from "react"
 import { AppContext } from "../../App"
 import { localStorageKey } from "../../App"
+import { Button } from "../Button"
 
 export function LoginButton() {
     let {setIsSignedIn} = useContext(AppContext)
@@ -15,6 +16,8 @@ export function LoginButton() {
         }
     }
     return (
-        <button onClick={login}>Login</button>
+        <Button onClick={login}>
+            Login
+        </Button>
     )
 }

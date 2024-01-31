@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { AppContext } from "../../App"
 import { localStorageKey } from "../../App"
+import { Button } from "../Button"
 
 export function SignOutButton() {
     let {setIsSignedIn} = useContext(AppContext)
@@ -9,6 +10,8 @@ export function SignOutButton() {
         setIsSignedIn(false)
     }
     return (
-        <button onClick={signOut}>Sign Out</button>
+        <Button onClick={signOut}>
+            Sign Out
+        </Button>
     )
 }
