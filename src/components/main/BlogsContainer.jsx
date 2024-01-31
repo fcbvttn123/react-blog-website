@@ -27,8 +27,10 @@ export function BlogsContainer() {
     }, [])
 
     return (
-        <div>
-            {blogCards}
+        <div className="mt-8">
+            <div className="w-11/12 mx-auto max-w-2xl">
+                {blogCards}
+            </div>
         </div>
     )
 }
