@@ -9,6 +9,7 @@ export function PostForm() {
         post: ""
     })
     let currentlyAccountDisplayName = JSON.parse(localStorage.getItem(localStorageKey)).username
+    let currentlyAccountEmailAddress = JSON.parse(localStorage.getItem(localStorageKey)).email
     function formChangeEvent(e) {
         let {value, name} = e.target
         setFormData(prev => {
@@ -21,14 +22,20 @@ export function PostForm() {
     function formSubmission(e) {
         e.preventDefault()
         if (formData.title == "" || formData.post == "") return
-        savePostToDB(formData.title.replace(/\n/g, ''), formData.post.replace(/\n/g, ''))
+        savePostToDB(
+            formData.title.replace(/\n/g, ''), 
+            formData.post.replace(/\n/g, ''), 
+            currentlyAccountDisplayName, 
+            currentlyAccountEmailAddress
+        )
     }
-    async function savePostToDB(title, post) {
+    async function savePostToDB(title, post, writerName, writerEmail) {
         await addDoc(blogs, {
             title, 
             post,
-            writer: currentlyAccountDisplayName,
-            createdAt: Date.now()
+            writer: writerName,
+            createdAt: Date.now(),
+            email: writerEmail
         })
         setFormData({
             title: "", 
